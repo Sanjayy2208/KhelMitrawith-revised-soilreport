@@ -60,7 +60,7 @@ Rules:
 - Keep confidence between 0 and 1. message should be a short, user-friendly explanation.
 - Do not return markdown or any text outside the JSON.`
 
-    const geminiResponse = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent', {
+    const geminiResponse = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
       body: JSON.stringify({
