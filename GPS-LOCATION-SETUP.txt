@@ -1,0 +1,20 @@
+KhetMitra GPS autofill
+
+The Your land page now has a working “Use GPS location” button.
+
+How it works:
+1. The browser asks the farmer to allow location access.
+2. The app reads GPS latitude and longitude using the browser Geolocation API.
+3. The app calls /api/gps/reverse, which reverse-geocodes the coordinates using OpenStreetMap Nominatim.
+4. The Village and District fields are filled when address data is available. The farmer can still edit both fields manually.
+5. Loading, permission-denied, timeout, and lookup-error messages are displayed on the page.
+
+Important:
+- Geolocation requires HTTPS on deployed sites (localhost is also allowed for development).
+- The farmer must grant location permission and enable device location services.
+- Reverse geocoding depends on OpenStreetMap address coverage. In some rural areas, the result may be a nearby town/locality rather than an exact village; the fields remain editable.
+- Nominatim's public service has usage limits. For a high-traffic production deployment, use a hosted geocoding provider or a properly operated Nominatim instance and follow its usage policy.
+
+Build:
+  pnpm install
+  pnpm run build
